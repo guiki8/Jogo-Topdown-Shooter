@@ -25,22 +25,67 @@ if (move_length > 0) {
 
 // Sprite inverte para esquerda/direita
 if (hmove != 0) {
-    image_xscale = base_xscale * hmove;
+    image_xscale = base_xscale * sign(hmove);
 }
 
 // Aplicar movimento
 x += hmove * move_speed;
 y += vmove * move_speed;
 
+// Considerar direção do flip
+var is_facing_left = (image_xscale < 0);
+
 // Trocar animação com base no movimento
 if (hmove != 0 || vmove != 0) {
-    if (sprite_index != sprPlayerWalk) {
-        sprite_index = sprPlayerWalk;
-        image_speed = 1; // velocidade normal da animação
+    if (is_facing_left) {
+        if (mouse_x < x) {
+            if (sprite_index != sprPlayerWalk) {
+                sprite_index = sprPlayerWalk;
+                image_speed = 1;
+            }
+        } else {
+            if (sprite_index != sprPlayerWalk_2) {
+                sprite_index = sprPlayerWalk_2;
+                image_speed = 1;
+            }
+        }
+    } else {
+        if (mouse_x < x) {
+            if (sprite_index != sprPlayerWalk_2) {
+                sprite_index = sprPlayerWalk_2;
+                image_speed = 1;
+            }
+        } else {
+            if (sprite_index != sprPlayerWalk) {
+                sprite_index = sprPlayerWalk;
+                image_speed = 1;
+            }
+        }
     }
 } else {
-    if (sprite_index != sprPlayerIdle) {
-        sprite_index = sprPlayerIdle;
-        image_speed = 0.2; // mais lento se quiser
+    if (is_facing_left) {
+        if (mouse_x < x) {
+            if (sprite_index != sprPlayerIdle) {
+                sprite_index = sprPlayerIdle;
+                image_speed = 0.2;
+            }
+        } else {
+            if (sprite_index != sprPlayerIdle_2) {
+                sprite_index = sprPlayerIdle_2;
+                image_speed = 0.2;
+            }
+        }
+    } else {
+        if (mouse_x < x) {
+            if (sprite_index != sprPlayerIdle_2) {
+                sprite_index = sprPlayerIdle_2;
+                image_speed = 0.2;
+            }
+        } else {
+            if (sprite_index != sprPlayerIdle) {
+                sprite_index = sprPlayerIdle;
+                image_speed = 0.2;
+            }
+        }
     }
 }
