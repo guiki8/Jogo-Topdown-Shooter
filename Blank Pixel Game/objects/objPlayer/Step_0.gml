@@ -35,57 +35,29 @@ y += vmove * move_speed;
 // Considerar direção do flip
 var is_facing_left = (image_xscale < 0);
 
-// Trocar animação com base no movimento
+// Lógica de animação
 if (hmove != 0 || vmove != 0) {
-    if (is_facing_left) {
-        if (mouse_x < x) {
-            if (sprite_index != sprPlayerWalk) {
-                sprite_index = sprPlayerWalk;
-                image_speed = 1;
-            }
+    if (has_weapon) {
+        // Com arma
+        if (is_facing_left) {
+            sprite_index = (mouse_x < x) ? sprPlayerWalk_1 : sprPlayerWalk_2;
         } else {
-            if (sprite_index != sprPlayerWalk_2) {
-                sprite_index = sprPlayerWalk_2;
-                image_speed = 1;
-            }
+            sprite_index = (mouse_x < x) ? sprPlayerWalk_2 : sprPlayerWalk_1;
         }
     } else {
-        if (mouse_x < x) {
-            if (sprite_index != sprPlayerWalk_2) {
-                sprite_index = sprPlayerWalk_2;
-                image_speed = 1;
-            }
-        } else {
-            if (sprite_index != sprPlayerWalk) {
-                sprite_index = sprPlayerWalk;
-                image_speed = 1;
-            }
-        }
+        // Sem arma
+        sprite_index = sprPlayerWalk;
     }
+    image_speed = 1;
 } else {
-    if (is_facing_left) {
-        if (mouse_x < x) {
-            if (sprite_index != sprPlayerIdle) {
-                sprite_index = sprPlayerIdle;
-                image_speed = 0.2;
-            }
+    if (has_weapon) {
+        if (is_facing_left) {
+            sprite_index = (mouse_x < x) ? sprPlayerIdle_1 : sprPlayerIdle_2;
         } else {
-            if (sprite_index != sprPlayerIdle_2) {
-                sprite_index = sprPlayerIdle_2;
-                image_speed = 0.2;
-            }
+            sprite_index = (mouse_x < x) ? sprPlayerIdle_2 : sprPlayerIdle_1;
         }
     } else {
-        if (mouse_x < x) {
-            if (sprite_index != sprPlayerIdle_2) {
-                sprite_index = sprPlayerIdle_2;
-                image_speed = 0.2;
-            }
-        } else {
-            if (sprite_index != sprPlayerIdle) {
-                sprite_index = sprPlayerIdle;
-                image_speed = 0.2;
-            }
-        }
+        sprite_index = sprPlayerIdle;
     }
+    image_speed = 0.2;
 }
