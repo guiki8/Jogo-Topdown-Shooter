@@ -37,7 +37,7 @@ var is_facing_left = (image_xscale < 0);
 
 // Lógica de animação
 if (hmove != 0 || vmove != 0) {
-    if (has_weapon) {
+    if (has_weapon != 0) {
         // Com arma
         if (is_facing_left) {
             sprite_index = (mouse_x < x) ? sprPlayerWalk_1 : sprPlayerWalk_2;
@@ -50,7 +50,7 @@ if (hmove != 0 || vmove != 0) {
     }
     image_speed = 1;
 } else {
-    if (has_weapon) {
+    if (has_weapon != 0) {
         if (is_facing_left) {
             sprite_index = (mouse_x < x) ? sprPlayerIdle_1 : sprPlayerIdle_2;
         } else {

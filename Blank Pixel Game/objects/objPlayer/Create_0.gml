@@ -4,5 +4,8 @@ move_speed = 5;
 // Salva o tamanho do personagem
 base_xscale = image_xscale;
 
-// Tem a arma
-has_weapon = false
+// Arma equipada
+has_weapon = 0
+
+// Municao
+ammo = 0

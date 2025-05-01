@@ -2,9 +2,9 @@
   "$GMSprite":"",
   "%Name":"sprFundo",
   "bboxMode":0,
-  "bbox_bottom":47,
-  "bbox_left":0,
-  "bbox_right":90,
+  "bbox_bottom":289,
+  "bbox_left":37,
+  "bbox_right":548,
   "bbox_top":0,
   "collisionKind":1,
   "collisionTolerance":0,
@@ -16,7 +16,7 @@
   ],
   "gridX":0,
   "gridY":0,
-  "height":48,
+  "height":300,
   "HTile":false,
   "layers":[
     {"$GMImageLayer":"","%Name":"d3b29ccf-610d-4131-a3cc-3eb28d857e64","blendMode":0,"displayName":"default","isLocked":false,"name":"d3b29ccf-610d-4131-a3cc-3eb28d857e64","opacity":100.0,"resourceType":"GMImageLayer","resourceVersion":"2.0","visible":true,},
@@ -105,5 +105,5 @@
   },
   "type":0,
   "VTile":false,
-  "width":91,
+  "width":600,
 }
