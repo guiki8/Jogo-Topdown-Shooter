@@ -1,6 +1,12 @@
 // 1) Destaque ao se aproximar
 if (!is_collected) {
-    image_index = (point_distance(x, y, objPlayer.x, objPlayer.y) <= pickup_radius) ? 1 : 0;
+    if (point_distance(x, y, objPlayer.x, objPlayer.y) <= pickup_radius){
+		image_index = 1
+		if (!instance_exists(objKeyE)) instance_create_layer(x, y + 20, "Instances", objKeyE);
+	} else {
+		image_index = 0
+		if (instance_exists(objKeyE)) instance_destroy(objKeyE);
+	}
     exit;
 }
 
