@@ -1,25 +1,28 @@
 // 1) Destaque ao se aproximar
 if (!is_collected) {
-    if (point_distance(x, y, objPlayer.x, objPlayer.y) <= pickup_radius){
-		image_index = 1
-		if (!instance_exists(objKeyE)) instance_create_layer(x, y + 20, "Instances", objKeyE);
-	} else {
-		image_index = 0
-		if (instance_exists(objKeyE)) instance_destroy(objKeyE);
-	}
+    if (point_distance(x, y, objPlayer.x, objPlayer.y) <= pickup_radius) {
+        image_index = 1;
+        if (!instance_exists(key_e)) {
+            key_e = instance_create_layer(x + (10 * gunNumber), y - 40, "Instances", objKeyE);
+        }
+    } else {
+        image_index = 0;
+        if (instance_exists(key_e)) instance_destroy(key_e);
+    }
     exit;
 }
 
 // 2) Soltar arma com Q
 if (keyboard_check_pressed(ord("Q"))) {
-    is_collected           = false;
-    objPlayer.has_weapon   = 0;
-    sprite_index           = spriteBase;
-    image_index            = 0;
-    x                      = objPlayer.x;
-    y                      = objPlayer.y + 30;
-    image_angle            = 0;
-    image_yscale           = 3;
+    is_collected             = false;
+    objPlayer.has_weapon     = 0;
+    objPlayer.equipped_weapon = noone; // limpa referência à arma
+    sprite_index             = spriteBase;
+    image_index              = 0;
+    x                        = objPlayer.x;
+    y                        = objPlayer.y + 30;
+    image_angle              = 0;
+    image_yscale             = 3;
     if (instance_exists(objCrosshair)) instance_destroy(objCrosshair);
     exit;
 }
@@ -43,7 +46,7 @@ if (sprite_index != spriteHand) sprite_index = spriteHand;
 // 4) Cria mira
 if (!instance_exists(objCrosshair)) {
     instance_create_layer(mouse_x, mouse_y, "Instances", objCrosshair);
-	objCrosshair.image_index = idGun - 1
+    objCrosshair.image_index = gunNumber - 1;
 }
 
 // 5) Controla animação de tiro

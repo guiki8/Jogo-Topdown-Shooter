@@ -42,6 +42,7 @@
     {"id":{"name":"objGun_2","path":"objects/objGun_2/objGun_2.yy",},},
     {"id":{"name":"objGun_3","path":"objects/objGun_3/objGun_3.yy",},},
     {"id":{"name":"objGunBase","path":"objects/objGunBase/objGunBase.yy",},},
+    {"id":{"name":"objHud","path":"objects/objHud/objHud.yy",},},
     {"id":{"name":"objKeyE","path":"objects/objKeyE/objKeyE.yy",},},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},

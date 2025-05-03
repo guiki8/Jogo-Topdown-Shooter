@@ -3,18 +3,10 @@ var hmove = 0;
 var vmove = 0;
 
 // Verificar teclas pressionadas
-if (keyboard_check(vk_right) || keyboard_check(ord("D"))) {
-    hmove = 1;
-}
-if (keyboard_check(vk_left) || keyboard_check(ord("A"))) {
-    hmove = -1;
-}
-if (keyboard_check(vk_down) || keyboard_check(ord("S"))) {
-    vmove = 1;
-}
-if (keyboard_check(vk_up) || keyboard_check(ord("W"))) {
-    vmove = -1;
-}
+if (keyboard_check(vk_right) || keyboard_check(ord("D"))) hmove = 1;
+if (keyboard_check(vk_left)  || keyboard_check(ord("A"))) hmove = -1;
+if (keyboard_check(vk_down)  || keyboard_check(ord("S"))) vmove = 1;
+if (keyboard_check(vk_up)    || keyboard_check(ord("W"))) vmove = -1;
 
 // Normalizar movimento diagonal
 var move_length = point_distance(0, 0, hmove, vmove);
@@ -35,7 +27,8 @@ y += vmove * move_speed;
 // Considerar direção do flip
 var is_facing_left = (image_xscale < 0);
 
-// Lógica de animação
+// --- ANIMAÇÃO ---
+
 if (hmove != 0 || vmove != 0) {
     if (has_weapon != 0) {
         // Com arma
