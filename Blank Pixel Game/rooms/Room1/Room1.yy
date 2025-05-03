@@ -16,6 +16,7 @@
     {"name":"inst_548A2A3A","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_3C9F8BC","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_76B46852","path":"rooms/Room1/Room1.yy",},
+    {"name":"inst_A6B7556","path":"rooms/Room1/Room1.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -30,6 +31,7 @@
         {"$GMRInstance":"v1","%Name":"inst_548A2A3A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_548A2A3A","objectId":{"name":"objGun_3","path":"objects/objGun_3/objGun_3.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.0,"scaleY":3.0,"x":567.0,"y":632.0,},
         {"$GMRInstance":"v1","%Name":"inst_3C9F8BC","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3C9F8BC","objectId":{"name":"objGun_3","path":"objects/objGun_3/objGun_3.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.0,"scaleY":3.0,"x":419.0,"y":645.0,},
         {"$GMRInstance":"v1","%Name":"inst_76B46852","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_76B46852","objectId":{"name":"objHud","path":"objects/objHud/objHud.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":301.0,"y":155.0,},
+        {"$GMRInstance":"v1","%Name":"inst_A6B7556","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_A6B7556","objectId":{"name":"objHudGun_1","path":"objects/objHudGun_1/objHudGun_1.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":3.0,"scaleY":3.0,"x":160.0,"y":32.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRTileLayer":"","%Name":"Tiles_1","depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Tiles_1","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":11,"SerialiseWidth":18,"TileCompressedData":[
           -15,10,5,11,-2147483648,-2147483648,14,8,-4,10,3,9,14,8,-6,10,21,6,3,-2147483648,2,5,10,10,9,14,15,1,
