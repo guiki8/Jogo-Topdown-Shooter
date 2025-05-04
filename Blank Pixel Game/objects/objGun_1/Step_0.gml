@@ -5,7 +5,7 @@ event_inherited();
 if (!is_collected || objPlayer.has_weapon != gunNumber) exit;
 
 // Verifica se o botão foi pressionado e o cooldown já passou
-if (mouse_check_button_pressed(mb_left) && cooldown_timer <= 0) {
+if (mouse_check_button_pressed(mb_left) && cooldown_timer <= 0 && objHudGun_1.ammo != 6) {
     // Cria o projétil
     var bullet = instance_create_layer(x, y, "Instances", bullet_type);
 
