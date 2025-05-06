@@ -37,3 +37,5 @@ if (objPlayer.has_weapon != 0) {
         draw_text(text_x, text_y, "Gun #: " + string(gun.gunNumber));  // Exibe gunNumber
     }
 }
+
+draw_text(10, 10, "has_weapon: " + string(objPlayer.has_weapon));
