@@ -1,14 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"objHudGun_2",
+  "%Name":"objHudBullet",
   "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":82,"eventType":9,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":64,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objHudGun_2",
+  "name":"objHudBullet",
   "overriddenProperties":[],
   "parent":{
     "name":"Objetos",
@@ -33,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"sprGun_2_0",
-    "path":"sprites/sprGun_2_0/sprGun_2_0.yy",
+    "name":"sprHudBullet",
+    "path":"sprites/sprHudBullet/sprHudBullet.yy",
   },
   "spriteMaskId":null,
   "visible":true,

@@ -8,6 +8,8 @@ if (!is_collected || objPlayer.has_weapon != gunNumber) exit;
 if (mouse_check_button(mb_left) && cooldown_timer <= 0) {
     // Cria o projétil
     var bullet = instance_create_layer(x, y, "Instances", bullet_type);
+	
+	gastar_bala();
 
     // Calcula a direção do disparo
     var dir = point_direction(x, y, mouse_x, mouse_y);
