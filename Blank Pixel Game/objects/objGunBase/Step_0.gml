@@ -3,7 +3,7 @@ if (!is_collected) {
     if (point_distance(x, y, objPlayer.x, objPlayer.y) <= pickup_radius) {
         image_index = 1;
         if (!instance_exists(key_e)) {
-            key_e = instance_create_layer(x + (10 * gunNumber), y - 40, "Instances", objKeyE);
+            key_e = instance_create_layer(x + (2 * gunNumber), y - 13, "Instances", objKeyE);
         }
     } else {
         image_index = 0;
@@ -20,27 +20,27 @@ if (keyboard_check_pressed(ord("Q"))) {
     sprite_index             = spriteBase;
     image_index              = 0;
     x                        = objPlayer.x;
-    y                        = objPlayer.y + 30;
+    y                        = objPlayer.y + 10;
     image_angle              = 0;
-    image_yscale             = 3;
+    image_yscale             = 1;
     if (instance_exists(objCrosshair)) instance_destroy(objCrosshair);
     exit;
 }
 
 // 3) Segue o player e ajusta sprite
 var angle           = point_direction(objPlayer.x, objPlayer.y, mouse_x, mouse_y);
-var orbit_center_x  = objPlayer.x + (mouse_x < objPlayer.x ? -25 : 25);
-var orbit_center_y  = objPlayer.y - 10;
-var radius          = 20;
-var offset_distance = 30;
+var orbit_center_x  = objPlayer.x + (mouse_x < objPlayer.x ? -8 : 8);
+var orbit_center_y  = objPlayer.y - 3;
+var radius          = 7;
+var offset_distance = 10;
 var wx              = orbit_center_x + lengthdir_x(radius, angle) + lengthdir_x(offset_distance, angle);
 var wy              = orbit_center_y + lengthdir_y(radius, angle) + lengthdir_y(offset_distance, angle);
 
 x = wx;
 y = wy;
 image_angle   = angle;
-image_xscale  = 3;
-image_yscale  = (angle > 90 && angle < 270) ? -3 : 3;
+image_xscale  = 1;
+image_yscale  = (angle > 90 && angle < 270) ? -1 : 1;
 if (sprite_index != spriteHand) sprite_index = spriteHand;
 
 // 4) Cria mira

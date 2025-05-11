@@ -1,0 +1,1 @@
+draw_text(10, 120, "ammo: " + string(ammo));

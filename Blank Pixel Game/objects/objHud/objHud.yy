@@ -9,8 +9,8 @@
   "name":"objHud",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Hud",
+    "path":"folders/Objetos/Hud.yy",
   },
   "parentObjectId":null,
   "persistent":false,

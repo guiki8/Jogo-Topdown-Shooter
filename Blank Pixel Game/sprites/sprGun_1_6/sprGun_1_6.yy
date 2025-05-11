@@ -38,7 +38,7 @@
   "resourceVersion":"2.0",
   "sequence":{
     "$GMSequence":"",
-    "%Name":"sprGun_1_1",
+    "%Name":"sprGun_1_6",
     "autoRecord":true,
     "backdropHeight":768,
     "backdropImageOpacity":0.5,
@@ -62,7 +62,7 @@
       "resourceType":"KeyframeStore<MomentsEventKeyframe>",
       "resourceVersion":"2.0",
     },
-    "name":"sprGun_1_1",
+    "name":"sprGun_1_6",
     "playback":1,
     "playbackSpeed":20.0,
     "playbackSpeedType":0,

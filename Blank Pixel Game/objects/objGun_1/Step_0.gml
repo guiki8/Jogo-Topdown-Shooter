@@ -4,10 +4,19 @@ event_inherited();
 // Só atira se a arma estiver equipada
 if (!is_collected || objPlayer.has_weapon != gunNumber) exit;
 
+if (cooldown_timer <= 0 && global.has_ammo) {
+	global.can_shoot = true
+}
+
 // Verifica se o botão foi pressionado e o cooldown já passou
-if (mouse_check_button_pressed(mb_left) && cooldown_timer <= 0 && objHudGun_1.ammo != 6) {
+if (mouse_check_button_pressed(mb_left) && global.can_shoot) {
     // Cria o projétil
     var bullet = instance_create_layer(x, y, "Instances", bullet_type);
+	
+	global.can_shoot = false;
+	if (objHudGun_1.ammo < 6) { 
+		objHudGun_1.ammo += 1
+	}
 
     // Calcula a direção do mouse
     var dir = point_direction(x, y, mouse_x, mouse_y);

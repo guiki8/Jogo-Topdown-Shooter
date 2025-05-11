@@ -1,9 +1,7 @@
 image_speed = 1
-x = 10
-y = 10
+x = 3
+y = 3
 ammo = 0
-image_xscale = 3
-image_yscale = 3
 
 global.bullet_max = 20;
 global.bullet_count = 0;

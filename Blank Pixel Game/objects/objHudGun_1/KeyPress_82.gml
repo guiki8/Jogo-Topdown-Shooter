@@ -3,3 +3,4 @@ sprite_index = new_sprite;
 image_speed = 1;
 image_index = 0;
 ammo = 0
+global.has_ammo = true

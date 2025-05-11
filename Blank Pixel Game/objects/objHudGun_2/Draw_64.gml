@@ -12,10 +12,26 @@ for (var i = 0; i < global.bullet_max; i++) {
     var xx = start_x + col * spacing_x;
     var yy = start_y + row * spacing_y;
 
-    // A ordem de gasto invertida
-    var reversed_i = global.bullet_max - 1 - i;
+    // Inverter a ordem do índice
+	var reversed_i = global.bullet_max - i;
 
-    var frame = (reversed_i < global.bullet_count) ? sprite_get_number(sprHudBullet) - 1 : 0;
+	// Criar variável frame
+	var frame = 0;
 
-    draw_sprite_ext(sprHudBullet, frame, xx, yy, 3, 3, 0, c_white, 1);
+	if (reversed_i < ammo + 1) {
+		// Ainda tem bala nessa posição, mostrar o último frame (bala cheia)
+		frame = 1;
+	} else {
+		// Não tem bala, mostrar o primeiro frame (bala vazia)
+		frame = 0;
+	}
+
+	if (objGun_2.shooting_timer > 0) {
+		draw_sprite_ext(sprHudBullet_1, frame, xx, yy, 3, 3, 0, c_white, 1);
+	} else {
+		draw_sprite_ext(sprHudBullet, frame, xx, yy, 3, 3, 0, c_white, 1);
+	}
 }
+
+draw_text(30, 30, "shooting_timer: " + string(objGun_2.shooting_timer));
+draw_text(10, 120, "ammo: " + string(ammo));

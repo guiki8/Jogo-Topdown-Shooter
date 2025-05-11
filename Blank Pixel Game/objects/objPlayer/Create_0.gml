@@ -1,5 +1,5 @@
 // Velocidade do jogador
-move_speed = 5;
+move_speed = 2;
 
 // Salva o tamanho do personagem
 base_xscale = image_xscale;

@@ -4,8 +4,15 @@ event_inherited();
 // Só atira se a arma estiver equipada
 if (!is_collected || objPlayer.has_weapon != gunNumber) exit;
 
+
+if (cooldown_timer <= 0 && global.has_ammo = true) {
+	global.can_shoot = true
+}
+
 // Se o botão foi pressionado e o cooldown já passou
-if (mouse_check_button_pressed(mb_left) && cooldown_timer <= 0 && objHudGun_3.ammo != 2) {
+if (mouse_check_button_pressed(mb_left) && global.can_shoot) {
+	if (objHudGun_3.ammo < 2) objHudGun_3.ammo += 1;
+	
     // Cria o projétil
     var base_dir = point_direction(x, y, mouse_x, mouse_y);
     var num_bullets = 5;         // Quantidade de projéteis
@@ -31,6 +38,8 @@ if (mouse_check_button_pressed(mb_left) && cooldown_timer <= 0 && objHudGun_3.am
 
     // Reinicia o cooldown
     cooldown_timer = cooldown_max;
+	
+	global.can_shoot = false
 }
 
 // Controla o cooldown de disparo

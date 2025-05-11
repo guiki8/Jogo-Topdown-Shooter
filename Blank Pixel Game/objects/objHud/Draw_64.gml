@@ -39,3 +39,5 @@ if (objPlayer.has_weapon != 0) {
 }
 
 draw_text(10, 10, "has_weapon: " + string(objPlayer.has_weapon));
+draw_text(10, 80, "can_shoot: " + string(global.can_shoot));
+draw_text(10, 100, "has_ammo: " + string(global.has_ammo));

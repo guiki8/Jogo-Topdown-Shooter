@@ -1,15 +1,13 @@
 {
   "$GMObject":"",
   "%Name":"objHudBullet",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "eventList":[],
   "managed":true,
   "name":"objHudBullet",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objetos",
-    "path":"folders/Objetos.yy",
+    "name":"Hud",
+    "path":"folders/Objetos/Hud.yy",
   },
   "parentObjectId":null,
   "persistent":false,
