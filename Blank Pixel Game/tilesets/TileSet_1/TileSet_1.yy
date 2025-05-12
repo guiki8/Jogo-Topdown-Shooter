@@ -1,8 +1,9 @@
 {
   "$GMTileSet":"v1",
-  "%Name":"TileSet1",
+  "%Name":"TileSet_1",
   "autoTileSets":[
     {"$GMAutoTileSet":"","%Name":"autotile_1","closed_edge":false,"name":"autotile_1","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[10,5,6,2,8,4,13,1,9,16,11,3,14,12,15,0,],},
+    {"$GMAutoTileSet":"","%Name":"autotile_2","closed_edge":false,"name":"autotile_2","resourceType":"GMAutoTileSet","resourceVersion":"2.0","tiles":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,],},
   ],
   "macroPageTiles":{
     "SerialiseHeight":136,
@@ -422,13 +423,13 @@
     ],
     "TileDataFormat":1,
   },
-  "name":"TileSet1",
+  "name":"TileSet_1",
   "out_columns":4,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
-    "name":"Blank Pixel Game",
-    "path":"Blank Pixel Game.yyp",
+    "name":"Tiles",
+    "path":"folders/Tiles.yy",
   },
   "resourceType":"GMTileSet",
   "resourceVersion":"2.0",
@@ -443,11 +444,11 @@
   },
   "tileAnimationFrames":[],
   "tileAnimationSpeed":15.0,
-  "tileHeight":76,
+  "tileHeight":25,
   "tilehsep":0,
   "tilevsep":0,
-  "tileWidth":76,
-  "tilexoff":8,
-  "tileyoff":8,
+  "tileWidth":25,
+  "tilexoff":3,
+  "tileyoff":3,
   "tile_count":20,
 }

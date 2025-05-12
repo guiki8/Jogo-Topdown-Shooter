@@ -12,3 +12,5 @@ equipped_weapon = noone;
 
 // Munição (caso você use no futuro)
 ammo = 0;
+
+depth = -10

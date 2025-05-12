@@ -1,3 +1,7 @@
+// Oscilação vertical simples
+depth = 0
+y = yoriginal + sin(current_time * float_speed) * float_range;
+
 // 1) Destaque ao se aproximar
 if (!is_collected) {
     if (point_distance(x, y, objPlayer.x, objPlayer.y) <= pickup_radius) {
@@ -28,11 +32,10 @@ if (keyboard_check_pressed(ord("Q"))) {
 }
 
 // 3) Segue o player e ajusta sprite
+depth = -20
 var angle           = point_direction(objPlayer.x, objPlayer.y, mouse_x, mouse_y);
 var orbit_center_x  = objPlayer.x + (mouse_x < objPlayer.x ? -8 : 8);
 var orbit_center_y  = objPlayer.y - 3;
-var radius          = 7;
-var offset_distance = 10;
 var wx              = orbit_center_x + lengthdir_x(radius, angle) + lengthdir_x(offset_distance, angle);
 var wy              = orbit_center_y + lengthdir_y(radius, angle) + lengthdir_y(offset_distance, angle);
 
