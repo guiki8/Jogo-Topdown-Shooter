@@ -1,0 +1,1 @@
+global.hud_position = [-100, 180]

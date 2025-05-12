@@ -8,6 +8,6 @@ if (global.can_shoot) {
 		image_speed = 1;
 		image_index = 0;
 		// Cria a cap da bala
-		instance_create_layer(x + 155, y + 43, "Hud", objHudBulletCap_1)
+		instance_create_layer(global.hud_position[0] + 155, global.hud_position[1] + 43, "Hud", objHudBulletCap_1)
     }
 }

@@ -7,6 +7,6 @@ vsp += gravity; // gravidade atua para baixo
 image_angle += rot_speed;
 
 // Destruir quando sair da tela ou cair
-if (y > 80) {
+if (y > room_height) {
     instance_destroy();
 }

@@ -2,8 +2,8 @@ var cols = 7;
 var rows = 3;
 var spacing_x = 15;
 var spacing_y = 25;
-var start_x = 580;
-var start_y = 125;
+var start_x = global.hud_position[0] + 370;
+var start_y = global.hud_position[1] + 475;
 
 for (var i = 0; i < global.bullet_max; i++) {
     var col = i mod cols;
