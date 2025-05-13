@@ -20,7 +20,7 @@ if (mouse_check_button(mb_left) && global.can_shoot = true) {
 	gastar_bala();
 
     // Calcula a direção do disparo
-    var dir = point_direction(x, y, mouse_x, mouse_y);
+    var dir = point_direction(x, y, objCrosshair.x, objCrosshair.y)
     bullet.direction   = dir;
     bullet.image_angle = dir;
 

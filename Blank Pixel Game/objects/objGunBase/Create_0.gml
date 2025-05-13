@@ -8,6 +8,7 @@ key_e            = noone;
 gunNumber        = 0;
 cooldown_timer   = 0;
 
+base_y = y;
 yoriginal = y;
 float_speed = random_range(0.0020, 0.0040);
 float_range = 3;

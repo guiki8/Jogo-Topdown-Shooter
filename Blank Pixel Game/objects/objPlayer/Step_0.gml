@@ -52,5 +52,5 @@ if (hmove != 0 || vmove != 0) {
     } else {
         sprite_index = sprPlayerIdle;
     }
-    image_speed = 0.2;
+    image_speed = 1;
 }

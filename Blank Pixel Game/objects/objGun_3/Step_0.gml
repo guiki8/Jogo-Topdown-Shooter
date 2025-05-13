@@ -14,7 +14,7 @@ if (mouse_check_button_pressed(mb_left) && global.can_shoot) {
 	if (objHudGun_3.ammo < 2) objHudGun_3.ammo += 1;
 	
     // Cria o projétil
-    var base_dir = point_direction(x, y, mouse_x, mouse_y);
+    var base_dir = point_direction(x, y, objCrosshair.x, objCrosshair.y)
     var num_bullets = 5;         // Quantidade de projéteis
     var spread = 20;             // Ângulo total de espalhamento (graus)
     var offset_dist = 10;

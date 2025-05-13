@@ -1,3 +1,4 @@
+draw_set_font(Pixel)
 // Verifica se o jogador tem uma arma equipada
 if (objPlayer.has_weapon != 0) {
     // Procura pela instância da arma equipada

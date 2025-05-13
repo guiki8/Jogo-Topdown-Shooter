@@ -19,7 +19,7 @@ if (mouse_check_button_pressed(mb_left) && global.can_shoot) {
 	}
 
     // Calcula a direção do mouse
-    var dir = point_direction(x, y, mouse_x, mouse_y);
+    var dir = point_direction(x, y, objCrosshair.x, objCrosshair.y)
     bullet.direction    = dir;
     bullet.image_angle  = dir;
 

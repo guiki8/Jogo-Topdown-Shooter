@@ -1,3 +1,4 @@
+draw_set_font(Pixel)
 var cols = 7;
 var rows = 3;
 var spacing_x = 15;
