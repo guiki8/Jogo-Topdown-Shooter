@@ -1,36 +1,39 @@
 /// Create Event — obj_Enemy
 
-/// Máquina de estados e patrulha
-state            = "patrol";                  // "patrol", "chase", "return"
-speed_walk       = 0.5;
-speed_chase      = 1;
-patrol_point_a   = [ x, y ];
-patrol_point_b   = [ x + 100, y ];
-patrol_target    = patrol_point_b;
-chase_radius     = 60;
-lose_radius      = 80;
-player           = objPlayer;
+// Máquina de estados: patrol, attack, chase, flee, melee, return
+state               = "patrol";
 
-/// Movimento / flip
-move_speed       = 2.0;                       // usado pela IA
-base_xscale      = 1;
-hmove            = 0;
-vmove            = 0;
+speed_walk          = 0.5;
+speed_chase         = 1.0;
+speed_flee          = 1.0;
 
-/// Arma do inimigo
-gunNumber        = 2;                         // ID desta arma
-has_weapon       = gunNumber;                 
-cooldown_timer   = 0;
-cooldown_max     = 30;
+patrol_point_a      = [ x, y ];
+patrol_point_b      = [ x + 100, y ];
+patrol_target       = patrol_point_b;
+
+chase_radius        = 60;    // quando começa a perseguir na ausência de visão
+lose_radius         = 80;    // quando desiste da perseguição
+vision_radius       = 150;   // alcance de visão / ataque à distância
+enemy_vision_radius = 150;   // alcance de visão / ataque à distância
+min_attack_dist     = 50;    // distância mínima para kitear
+ideal_attack_dist   = 100;   // distância ideal para atirar
+
+player              = objPlayer;
+
+// Movimento / flip
+base_xscale         = 1;
+hmove               = 0;
+vmove               = 0;
+
+// Arma do inimigo
+gunNumber           = 2;
+has_weapon          = true;
 enemy_barrel_radius = 12;
-enemy_vision_radius = 150;
 
-/// Munição do inimigo (global)
-enemy_ammo   = 20;
-global.enemy_has_ammo   = 20;
-global.enemy_can_shoot  = false;
+// Munição
+enemy_ammo          = 20;
 
-/// Cria e equipa o objeto arma
+// Instancia a arma
 var g = instance_create_layer(x, y, "Instances", objEnemyGun_1);
 g.owner     = id;
 g.gunNumber = gunNumber;
