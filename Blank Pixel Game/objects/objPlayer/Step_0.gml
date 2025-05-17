@@ -20,15 +20,22 @@ if (hmove != 0) {
     image_xscale = base_xscale * sign(hmove);
 }
 
-// Aplicar movimento
-x += hmove * move_speed;
-y += vmove * move_speed;
+// Aplicar movimento com colisão em X
+var new_x = x + hmove * move_speed;
+if (!place_meeting(new_x, y, objWall)) {
+    x = new_x;
+}
+
+// Aplicar movimento com colisão em Y
+var new_y = y + vmove * move_speed;
+if (!place_meeting(x, new_y, objWall)) {
+    y = new_y;
+}
 
 // Considerar direção do flip
 var is_facing_left = (image_xscale < 0);
 
 // --- ANIMAÇÃO ---
-
 if (hmove != 0 || vmove != 0) {
     if (has_weapon != 0) {
         // Com arma

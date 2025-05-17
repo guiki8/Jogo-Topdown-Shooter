@@ -1,9 +1,10 @@
+var can_shoot = (owner.state == "attack" || owner.state == "chase");
 // ---------------------------------------------
 // Arma solta quando sem munição
 // ---------------------------------------------
 if (owner.enemy_ammo <= 0) {
 	
-	owner.has_weapon = false
+	owner.has_weapon = false;
 
     // Se ainda não foi solta, inicializa
     if (!is_thrown) {
@@ -40,7 +41,7 @@ var orbit_center_y = owner.y - 3;
 // --- Mira no player ou para frente ---
 var angle = owner.image_angle;
 
-if (point_distance(owner.x, owner.y, objPlayer.x, objPlayer.y) <= owner.enemy_vision_radius) {
+if (point_distance(owner.x, owner.y, objPlayer.x, objPlayer.y) <= owner.vision_radius && can_shoot) {
     angle = point_direction(x, y, objPlayer.x, objPlayer.y);
     orbit_center_x = owner.x + (objPlayer.x < owner.x ? -8 : 8);
     image_xscale = 1;
@@ -59,6 +60,7 @@ y = wy;
 image_angle = angle;
 image_yscale = (angle > 90 && angle < 270) ? -1 : 1;
 
+
 // ——————————————
 // Animação de tiro
 // ——————————————
@@ -70,6 +72,7 @@ if (shooting_timer > 0) {
     }
 }
 
+
 // ——————————————
 // Cooldown
 // ——————————————
@@ -77,13 +80,16 @@ if (cooldown_timer > 0) {
     cooldown_timer -= 1;
 }
 
-// ——————————————
-// Disparo automático
-// ——————————————
-if (cooldown_timer <= 0
+
+// —————————————————————————————————————————————
+// Disparo automático (somente no estado "attack")
+// —————————————————————————————————————————————
+if (
+    cooldown_timer <= 0
     && owner.enemy_ammo > 0
-    && point_distance(owner.x, owner.y, objPlayer.x, objPlayer.y) <= owner.enemy_vision_radius) {
-    
+    && can_shoot // ← só dispara se o inimigo estiver atacando!
+    && point_distance(owner.x, owner.y, objPlayer.x, objPlayer.y) <= owner.vision_radius
+) {
     // Cria projétil
     var b = instance_create_layer(x, y, "Instances", bullet_type);
     b.direction   = angle;

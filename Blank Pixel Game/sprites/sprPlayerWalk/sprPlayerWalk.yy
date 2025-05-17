@@ -1,11 +1,11 @@
 {
   "$GMSprite":"",
   "%Name":"sprPlayerWalk",
-  "bboxMode":0,
+  "bboxMode":2,
   "bbox_bottom":30,
   "bbox_left":0,
   "bbox_right":31,
-  "bbox_top":0,
+  "bbox_top":21,
   "collisionKind":1,
   "collisionTolerance":0,
   "DynamicTexturePage":false,
