@@ -20,7 +20,7 @@
     "TileDataFormat":1,
   },
   "name":"TileSet_4",
-  "out_columns":8,
+  "out_columns":39,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -46,5 +46,5 @@
   "tileWidth":16,
   "tilexoff":6,
   "tileyoff":10,
-  "tile_count":48,
+  "tile_count":882,
 }
