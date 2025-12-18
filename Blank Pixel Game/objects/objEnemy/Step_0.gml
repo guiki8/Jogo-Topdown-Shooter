@@ -1,83 +1,49 @@
 // —————————————————————————————————————————
 // 1) Máquina de estados
 // —————————————————————————————————————————
-switch (state) {
-    case "patrol":
-        var target_point = patrol_points[patrol_index];
-        var tx = target_point[0];
-        var ty = target_point[1];
+// Ataque
+var look_dir = (image_xscale == 1) ? 0 : 180;
+var dist_to_player = point_distance(x, y, objPlayer.x, objPlayer.y);
+var dir_to_player = point_direction(x, y, objPlayer.x, objPlayer.y);
+var angle_diff = angle_difference(look_dir, dir_to_player);
+var can_see_player = false;
 
-        if (path_timer <= 0) {
-            mp_grid_path(path_grid, path, x, y, tx, ty, true);
-            path_start(path, patrol_speed, path_action_stop, false);
-            path_timer = 30;
-        } else {
-            path_timer -= 1;
-        }
+var wall_in_way = collision_line(x, y, objPlayer.x, objPlayer.y, objWall, false, true);
 
-        if (point_distance(x, y, tx, ty) < 8) {
-            patrol_index = (patrol_index + 1) mod array_length(patrol_points);
-            path_timer = 0;
-        }
+if (dist_to_player <= vision_range) {
+    if (abs(angle_diff) <= vision_fov * 0.5) {
+        if (wall_in_way == noone) {
+            can_see_player = true;
+		}
+    }
+}
 
-        if (has_line_of_sight(player)) {
-            last_seen_x = player.x;
-            last_seen_y = player.y;
-            saw_player = true;
-            path_end();
-            state = "attack";
-        }
-        break;
+if (can_see_player) {
+    state = "shoot";
+} else {
+    state = "patrol"; // ou chase, patrol, etc
+}
 
-    case "attack":
-        hmove = 0;
-        vmove = 0;
+// Patrulha
+if (state == "patrol") {
+    // Ponto atual da patrulha
+    var tx = patrol_points[patrol_index][0];
+    var ty = patrol_points[patrol_index][1];
 
-        if (!has_line_of_sight(player)) {
-            state = "return";
-        } else {
-            last_seen_x = player.x;
-            last_seen_y = player.y;
-            saw_player = true;
+    // Direção até o ponto
+    var dir = point_direction(x, y, tx, ty);
 
-            if (ammo <= 0) {
-                state = "melee";
-            } else {
-                if (point_distance(x, y, player.x, player.y) < 60) {
-                    state = "flee";
-                }
-            }
-            // Continua atacando, arma cuida disso
-        }
-        break;
+    // Movimento
+    hmove = lengthdir_x(patrol_speed, dir);
+    vmove = lengthdir_y(patrol_speed, dir);
 
-    case "chase":
-        mp_grid_path(path_grid, path, x, y, player.x, player.y, true);
-        path_start(path, move_speed, path_action_stop, false);
-        break;
+    x += hmove;
+    y += vmove;
 
-    case "flee":
-        var angle_away = point_direction(player.x, player.y, x, y);
-        var fx = x + lengthdir_x(40, angle_away);
-        var fy = y + lengthdir_y(40, angle_away);
-        mp_grid_path(path_grid, path, x, y, fx, fy, true);
-        path_start(path, move_speed, path_action_stop, false);
-        break;
-
-    case "melee":
-        mp_grid_path(path_grid, path, x, y, player.x, player.y, true);
-        path_start(path, move_speed, path_action_stop, false);
-        break;
-
-    case "return":
-        mp_grid_path(path_grid, path, x, y, last_seen_x, last_seen_y, true);
-        path_start(path, move_speed, path_action_stop, false);
-
-        if (point_distance(x, y, last_seen_x, last_seen_y) < 8) {
-            state = "patrol";
-            saw_player = false;
-        }
-        break;
+    // Chegou no ponto?
+    if (point_distance(x, y, tx, ty) < 2) {
+        patrol_index = (patrol_index + 1) mod array_length(patrol_points);
+    }
 }
 
 // —————————————————————————————————————————
@@ -94,45 +60,20 @@ if (hmove != 0) {
 }
 
 if (hmove != 0 || vmove != 0) {
-    if (has_weapon) {
-        if (image_xscale < 0) {
-            if (player.x < x) {
-                sprite_index = sprEnemyWalk_1;
-            } else {
-                sprite_index = sprEnemyWalk_2;
-            }
-        } else {
-            if (player.x < x) {
-                sprite_index = sprEnemyWalk_2;
-            } else {
-                sprite_index = sprEnemyWalk_1;
-            }
-        }
-
-        if (!(point_distance(x, y, objPlayer.x, objPlayer.y) <= saw_player)) {
-            sprite_index = sprEnemyWalk_1;
-        }
-    } else {
+	if (has_weapon) {
+		sprite_index = sprEnemyWalk_1;
+    }else {
         sprite_index = sprEnemyWalk;
     }
-    image_speed = 1;
 } else {
     if (has_weapon) {
-        if (image_xscale > 0) {
-            if (player.x < x) {
-                sprite_index = sprEnemyIdle_1;
-            } else {
-                sprite_index = sprEnemyIdle_2;
-            }
-        } else {
-            if (player.x < x) {
-                sprite_index = sprEnemyIdle_2;
-            } else {
-                sprite_index = sprEnemyIdle_1;
-            }
-        }
-    } else {
-        sprite_index = sprEnemyIdle;
-    }
-    image_speed = 1;
+		sprite_index = sprEnemyIdle_2;
+    }else {
+        sprite_index = sprEnemyIdle;}
 }
+
+// Profundidade
+if (objPlayer.y > y){
+	depth = -9
+}else{
+	depth = -11}

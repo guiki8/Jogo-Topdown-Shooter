@@ -16,4 +16,7 @@ is_thrown = false;
 throw_dir = 0;
 image_index     = 0;
 image_angle     = 0;
+image_speed = 0;
 depth           = -20;
+hit = false; // foi arremessada
+hit_timer = 0;

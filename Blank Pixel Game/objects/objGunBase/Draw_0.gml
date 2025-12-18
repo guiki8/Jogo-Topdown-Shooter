@@ -4,7 +4,7 @@ if !is_collected {
     draw_set_alpha(0.5);
 
     // Desenha uma elipse achatada como sombra no chão, baseada no y salvo ao soltar
-    draw_ellipse_color(x - 6, base_y + 8, x + 6, base_y + 12, c_black, c_black, false);
+    draw_ellipse_color(x - 6, base_y + 8, x + 6 + shadow_type, base_y + 12, c_black, c_black, false);
 
     // Restaura a opacidade normal
     draw_set_alpha(1);

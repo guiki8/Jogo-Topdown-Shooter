@@ -1,5 +1,5 @@
 // Verifica se pode atirar (estados "attack" ou "chase")
-var can_shoot = (owner.state == "attack" || owner.state == "chase");
+var can_shoot = owner.state == "shoot";
 
 // ---------------------------------------------
 // Arma é solta quando sem munição
@@ -17,14 +17,28 @@ if (owner.ammo <= 0) {
         depth = owner.depth + 1;
     }
 
-    // Animação de rotação
-    image_angle += 10;
+	if (!hit){
+		// Animação de rotação
+		image_angle += 10;
 
-    // Movimento da arma jogada
-    var throw_speed = 1.5;
-    hspeed = lengthdir_x(throw_speed, throw_dir);
-    vspeed = lengthdir_y(throw_speed, throw_dir);
+		// Movimento da arma jogada
+		var throw_speed = 1.5;
+		hspeed = lengthdir_x(throw_speed, throw_dir);
+		vspeed = lengthdir_y(throw_speed, throw_dir);
 
+		// Colidiu com a parede?
+		if (place_meeting(x, y, objWall)) {
+			hit = true;
+			hit_timer = 15;          // quantos ticks a animação dura
+			image_speed = 0.5;
+			speed = 0;               // para a bala
+		}
+	} else {
+		hit_timer--;
+		if (hit_timer <= 0) {
+			instance_destroy();
+		}
+	}
     exit;
 }
 

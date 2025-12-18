@@ -13,3 +13,5 @@ spriteHand    = sprGun_3Hand;
 
 // ID da arma (para referência)
 gunNumber = 3;  // Representa o tipo da arma
+
+shadow_type = 8;

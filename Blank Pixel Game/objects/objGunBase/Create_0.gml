@@ -15,3 +15,5 @@ float_range = 3;
 
 radius          = 7;
 offset_distance = 10;
+
+shadow_type = 0;

@@ -14,6 +14,8 @@ spriteHand    = sprGun_2Hand;
 // ID da arma (para referência)
 gunNumber = 2;  // Representa o tipo da arma
 
+shadow_type = 8;
+
 function gastar_bala() {
     if (global.bullet_count < global.bullet_max) {
         global.bullet_count += 1;
