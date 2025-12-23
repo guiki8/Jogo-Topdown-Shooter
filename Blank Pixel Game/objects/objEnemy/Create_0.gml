@@ -18,6 +18,16 @@ g.gunNumber = gunNumber;
 // Visão
 vision_fov = 160;
 vision_range = 200;
+dist_to_player = 0;
+look_dir = 0;
+angle_diff = 0;
+dir_to_player = 0;
+can_see_player = false;
+
+// Ataque
+saw_player = false;
+chase_timer = 100;
+player_last_pos = array_create(2, 0);
 
 // Patrulha
 patrol_points = [

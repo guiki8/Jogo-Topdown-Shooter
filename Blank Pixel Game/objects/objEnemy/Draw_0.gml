@@ -21,42 +21,52 @@ for (var i = -fov / 2; i <= fov / 2; i += fov / steps) {
 draw_set_alpha(1);
 
 // -------------------------------------------------
-// Linha de visão até o player (LOS)
+// Linha de visão até o player
 // -------------------------------------------------
-var dist_to_player = point_distance(x, y, objPlayer.x, objPlayer.y);
-var dir_to_player  = point_direction(x, y, objPlayer.x, objPlayer.y);
-var angle_diff     = angle_difference(dir, dir_to_player);
-
-// Origem da visão (olhos)
+// Origem da visão
 var ox = x;
 var oy = y - 4;
 
-// Checa parede no caminho
-var wall = collision_line(
-    ox, oy,
-    objPlayer.x, objPlayer.y,
-    objWall,
-    false,
-    true
-);
+// Linha até o player
+if (point_distance(x, y, objPlayer.x, objPlayer.y) <= range) {
 
-// Só desenha a linha se estiver dentro do alcance
-if (dist_to_player <= range) {
-
-    // Dentro do cone?
-    if (abs(angle_diff) <= fov * 0.5) {
-        draw_set_color(wall == noone ? c_lime : c_red);
-    } else {
-        draw_set_color(c_gray);
-    }
+    if (can_see_player) { // << Ve o player
+        draw_set_color(c_lime);  // Player no alcance mas fora do campo de visao vv
+    } else if ((dist_to_player <= vision_range) and (abs(angle_diff) <= vision_fov * 0.5) ){
+        draw_set_color(c_red);
+    } else { // Player fora do alcance e campo de visao
+		draw_set_color(c_gray);
+	}
 
     draw_line(ox, oy, objPlayer.x, objPlayer.y);
 }
 
+// ------------------------------------
+// Área da última posição vista
+// ------------------------------------
+if (player_last_pos[0] != 0 || player_last_pos[1] != 0) {
+
+    if (can_see_player) {
+        draw_set_color(c_lime);   // vendo agora
+    } else {
+        draw_set_color(c_red);    // perdeu o player
+    }
+
+    draw_set_alpha(0.35);
+    draw_circle(
+        player_last_pos[0],
+        player_last_pos[1],
+        20,
+        false
+    );
+    draw_set_alpha(1);
+}
+
 draw_set_color(c_white);
 
+
 // -------------------------------------------------
-// Rota de patrulha (debug)
+// Rota de patrulha
 // -------------------------------------------------
 draw_set_color(c_red);
 
@@ -86,5 +96,6 @@ if (array_length(patrol_points) > 1) {
 // -------------------------------------------------
 draw_set_color(c_white);
 draw_text(x - 20, y - 40, string(state));
+draw_text(x - 40, y - 40, string(chase_timer));
 draw_text(x - 20, y - 28, string(ammo));
 draw_text(x - 20, y - 16, string(image_xscale));

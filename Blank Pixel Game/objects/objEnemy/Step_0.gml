@@ -1,31 +1,7 @@
-// —————————————————————————————————————————
-// 1) Máquina de estados
-// —————————————————————————————————————————
-// Ataque
-var look_dir = (image_xscale == 1) ? 0 : 180;
-var dist_to_player = point_distance(x, y, objPlayer.x, objPlayer.y);
-var dir_to_player = point_direction(x, y, objPlayer.x, objPlayer.y);
-var angle_diff = angle_difference(look_dir, dir_to_player);
-var can_see_player = false;
-
-var wall_in_way = collision_line(x, y, objPlayer.x, objPlayer.y, objWall, false, true);
-
-if (dist_to_player <= vision_range) {
-    if (abs(angle_diff) <= vision_fov * 0.5) {
-        if (wall_in_way == noone) {
-            can_see_player = true;
-		}
-    }
-}
-
-if (can_see_player) {
-    state = "shoot";
-} else {
-    state = "patrol"; // ou chase, patrol, etc
-}
-
 // Patrulha
 if (state == "patrol") {
+	vision_fov = 160;
+	vision_range = 200;
     // Ponto atual da patrulha
     var tx = patrol_points[patrol_index][0];
     var ty = patrol_points[patrol_index][1];
@@ -44,36 +20,23 @@ if (state == "patrol") {
     if (point_distance(x, y, tx, ty) < 2) {
         patrol_index = (patrol_index + 1) mod array_length(patrol_points);
     }
+	
+// Atirar
+} else if (state == "shoot"){
+	vision_fov = 360;
+	vision_range = 300;
+	player_last_pos[0] = objPlayer.x
+	player_last_pos[1] = objPlayer.y
+
+// Perseguir
+} else if (state == "chase"){
+	chase_timer --
+	if (chase_timer <= 0) {
+		saw_player = false
+	}
 }
 
 // —————————————————————————————————————————
-// 2) Calcula movimento real para flip
-// —————————————————————————————————————————
+// Calcula movimento real para flip
 hmove = x - xprevious;
 vmove = y - yprevious;
-
-// —————————————————————————————————————————
-// 3) Sprite e Animação
-// —————————————————————————————————————————
-if (hmove != 0) {
-    image_xscale = base_xscale * sign(hmove);
-}
-
-if (hmove != 0 || vmove != 0) {
-	if (has_weapon) {
-		sprite_index = sprEnemyWalk_1;
-    }else {
-        sprite_index = sprEnemyWalk;
-    }
-} else {
-    if (has_weapon) {
-		sprite_index = sprEnemyIdle_2;
-    }else {
-        sprite_index = sprEnemyIdle;}
-}
-
-// Profundidade
-if (objPlayer.y > y){
-	depth = -9
-}else{
-	depth = -11}
