@@ -5,6 +5,12 @@ if (!hit){
         hit_timer = 10;          // quantos ticks a animação dura
         image_speed = 0.5;
         speed = 0;               // para a bala
+	} else if (place_meeting(x, y, objEnemy)) {
+        hit = true;
+        hit_timer = 15;          // quantos ticks a animação dura
+		sprite_index = sprBullet_3
+        image_speed = 0.3;
+        speed = 0;               // para a bala
 	}
 } else {
     hit_timer--;

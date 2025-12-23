@@ -34,12 +34,18 @@ if (keyboard_check_pressed(ord("Q"))) {
     exit;
 }
 
-// 3) Segue o player e ajusta sprite (somente se estiver equipada)
+// 3) Cria mira
+    if (!instance_exists(objCrosshair)) {
+        instance_create_layer(mouse_x, mouse_y, "Instances", objCrosshair);
+        objCrosshair.image_index = gunNumber - 1;
+    }
+
+// 4) Segue o player e ajusta sprite (somente se estiver equipada)
 if (is_collected) {
     depth = -20;
-    var angle = point_direction(objPlayer.x, objPlayer.y, mouse_x, mouse_y);
     var orbit_center_x = objPlayer.x + (mouse_x < objPlayer.x ? -8 : 8);
-    var orbit_center_y = objPlayer.y - 3;
+    var orbit_center_y = objPlayer.y - 8;
+	var angle = point_direction(orbit_center_x, orbit_center_y, objCrosshair.x, objCrosshair.y);
     var wx = orbit_center_x + lengthdir_x(radius, angle) + lengthdir_x(offset_distance, angle);
     var wy = orbit_center_y + lengthdir_y(radius, angle) + lengthdir_y(offset_distance, angle);
 
@@ -49,12 +55,6 @@ if (is_collected) {
     image_xscale = 1;
     image_yscale = (angle > 90 && angle < 270) ? -1 : 1;
     if (sprite_index != spriteHand) sprite_index = spriteHand;
-
-    // 4) Cria mira
-    if (!instance_exists(objCrosshair)) {
-        instance_create_layer(mouse_x, mouse_y, "Instances", objCrosshair);
-        objCrosshair.image_index = gunNumber - 1;
-    }
 
     // 5) Controla animação de tiro
     if (shooting_timer > 0) {

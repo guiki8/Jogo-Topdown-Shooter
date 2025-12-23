@@ -3,7 +3,7 @@ var raio_min = 50;
 
 // Centro do círculo (ajustável)
 var centro_x = objPlayer.x;
-var centro_y = objPlayer.y;
+var centro_y = objPlayer.y - 8;
 
 // Cor e transparência
 draw_set_color(c_white);

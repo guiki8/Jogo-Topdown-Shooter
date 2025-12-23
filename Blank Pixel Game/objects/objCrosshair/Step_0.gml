@@ -2,8 +2,8 @@
 var raio_min = 50;
 
 // Centro customizado (ex: 50px acima do jogador)
-var centro_x = objPlayer.x - 5;
-var centro_y = objPlayer.y - 5;
+var centro_x = objPlayer.x;
+var centro_y = objPlayer.y - 8;
 
 // Cálculo da distância e direção
 var dx = mouse_x - centro_x;

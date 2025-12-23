@@ -31,8 +31,10 @@ player_last_pos = array_create(2, 0);
 
 // Patrulha
 patrol_points = [
-    [x - 50, y],
-	[x + 50, y]
+    [x - 50, y + 50],
+	[x + 50, y + 50],
+	[x - 50, y - 50],
+	[x + 50, y - 50]
 ];
 patrol_index = 0;
 patrol_speed = 0.5;

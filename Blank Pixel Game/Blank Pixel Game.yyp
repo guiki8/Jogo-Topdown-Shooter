@@ -71,6 +71,8 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"id":{"name":"sprAmmo","path":"sprites/sprAmmo/sprAmmo.yy",},},
     {"id":{"name":"sprBullet_1","path":"sprites/sprBullet_1/sprBullet_1.yy",},},
+    {"id":{"name":"sprBullet_2","path":"sprites/sprBullet_2/sprBullet_2.yy",},},
+    {"id":{"name":"sprBullet_3","path":"sprites/sprBullet_3/sprBullet_3.yy",},},
     {"id":{"name":"sprBullet","path":"sprites/sprBullet/sprBullet.yy",},},
     {"id":{"name":"sprCollision","path":"sprites/sprCollision/sprCollision.yy",},},
     {"id":{"name":"sprCrosshair","path":"sprites/sprCrosshair/sprCrosshair.yy",},},

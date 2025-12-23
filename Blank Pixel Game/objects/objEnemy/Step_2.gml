@@ -1,9 +1,9 @@
-// —————————————————————————————————————————
 // Sprite e Animação
-// —————————————————————————————————————————
-if (hmove != 0) {
+
+if (hmove != 0) { // Se move em x
     image_xscale = base_xscale * sign(hmove);
-} else if (can_see_player) {
+
+} else if (can_see_player) { // Parado mas ve o player
 	if (x > objPlayer.x){
 		image_xscale = -base_xscale
 	} else {
@@ -11,13 +11,13 @@ if (hmove != 0) {
 	}
 }
 
-if (hmove != 0 || vmove != 0) {
+if (hmove != 0 || vmove != 0) { // Se move
 	if (has_weapon) {
 		sprite_index = sprEnemyWalk_1;
     }else {
         sprite_index = sprEnemyWalk;
     }
-} else {
+} else { // Parado
     if (has_weapon) {
 		sprite_index = sprEnemyIdle_2;
     }else {
